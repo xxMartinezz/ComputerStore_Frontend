@@ -1,0 +1,37 @@
+<mat-card class="example-card" style="max-width: 200px;">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Dell Vostro</mat-card-title>
+    <mat-card-subtitle>Dell Vostro</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="./assets/dell_vostro.jpg" alt="Dell Vostro">
+  <mat-card-content>
+    <table mat-table>
+      <thead>
+        <tr *ngIf="processor">
+        <th> Procesor: </th>
+        <th> {{processor}} </th>
+        </tr>
+        <tr *ngIf="graphics">
+        <th> Karta graficzna: </th>
+        <th> {{graphics}} </th>
+        </tr>
+        <tr *ngIf="memory">
+        <th> Pamięć RAM: </th>
+        <th> {{memory}} </th>
+        </tr>
+        <tr *ngIf="storageDrivers">
+        <th> Dyski: </th>
+        <th> {{storageDrivers}} </th>
+        </tr>
+        <tr *ngIf="system">
+        <th> System: </th>
+        <th> {{system}} </th>
+        </tr>
+        </thead>
+    </table>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>Go somewhere</button>
+  </mat-card-actions>
+</mat-card>
