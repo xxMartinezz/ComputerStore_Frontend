@@ -1,0 +1,40 @@
+<div class="container">
+
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <a routerLink="/admin/computerList/new">Dodaj nowy komputer</a>
+  </div>
+
+  <div *ngIf="computerList == undefined || computerList.length === 0" fxLayout="row" fxLayoutAlign="center center">Brak komputerów w bazie</div>
+    <table class="table table-hover" *ngIf="computerList != undefined && computerList.length > 0">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">System</th>
+            <th scope="col">Processor</th>
+            <th scope="col">Graphics</th>
+            <th scope="col">Memory</th>
+            <th scope="col">Storage drivers</th>
+            <th scope="col">Inputs</th>
+            <th scope="col">Warranty</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let computer of computerList">
+            <th scope="row">{{computer.id}}</th>
+            <td>{{computer.name}}</td>
+            <td>{{computer.system}}</td>
+            <td>{{computer.processor}}</td>
+            <td>{{computer.graphics}}</td>
+            <td>{{computer.memory}}</td>
+            <td>{{computer.storageDrivers}}</td>
+            <td>{{computer.inputs}}</td>
+            <td>{{computer.warranty}}</td>
+            <td>{{computer.amount}}</td>
+            <td>{{computer.price}}</td>
+          </tr>
+        </tbody>
+    </table>
+</div>

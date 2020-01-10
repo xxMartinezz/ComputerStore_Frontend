@@ -1,0 +1,51 @@
+<div class="container" fxLayout="row" fxLayoutAlign="center center">
+
+  <form (ngSubmit)="onSubmit()" [formGroup]="computerForm">
+
+  <mat-card class="example-card" style="min-width: 500px;">
+
+    <mat-card-title fxLayout="row" fxLayoutAlign="center center">Utwórz nowy komputer</mat-card-title>
+
+    <mat-form-field>
+      <input matInput placeholder="Nazwa" formControlName="name">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="System" formControlName="system">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Procesor"formControlName="processor">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Karta graficzna" formControlName="graphics">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Pamięć" formControlName="memory">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Dyski" formControlName="storageDrivers">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Wejścia/Wyjścia" formControlName="inputs">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Gwarancja" formControlName="warranty">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Ilość" formControlName="amount">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Cena" formControlName="price">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Zdjęcie" formControlName="image">
+    </mat-form-field>
+    
+    <div fxLayout="row" fxLayoutAlign="center center">
+      <button mat-raised-button type="submit" color="primary">Zapisz</button>
+    </div>
+    
+  </mat-card>
+
+  </form>
+
+</div>

@@ -19,6 +19,12 @@ import { MatTableModule } from '@angular/material/table';
 import { OfferComponent } from './components/offer/offer.component';
 import { ComputerTileComponent } from './components/computers/computer-tile/computer-tile.component';
 import { ComputerTilesComponent } from './components/computers/computer-tiles/computer-tiles.component';
+import { AdminComponent } from './admin/admin.component';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { ComputerListComponent } from './admin/computer-list/computer-list.component';
+import { ComputerDetailsComponentComponent } from './admin/computer-details-component/computer-details-component.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material'; /* relevant import */
 
 @NgModule({
    declarations: [
@@ -29,7 +35,10 @@ import { ComputerTilesComponent } from './components/computers/computer-tiles/co
       MenuComponent,
       ComputersComponent,
       ComputerTileComponent,
-      ComputerTilesComponent
+      ComputerTilesComponent,
+      AdminComponent,
+      ComputerListComponent,
+      ComputerDetailsComponentComponent
    ],
    imports: [
       BrowserModule,
@@ -42,7 +51,10 @@ import { ComputerTilesComponent } from './components/computers/computer-tiles/co
       MatButtonModule,
       MatCardModule,
       MatFormFieldModule,
-      MatTableModule
+      MatTableModule,
+      MatButtonToggleModule,
+      ReactiveFormsModule,
+      MatInputModule
    ],
    providers: [],
    bootstrap: [

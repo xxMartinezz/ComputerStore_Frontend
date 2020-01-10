@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Computer, ComputerPage } from 'src/app/classes/computer';
 import { ComputerService } from 'src/app/services/computer.service';
-import { runInThisContext } from 'vm';
 
 @Component({
   selector: 'app-computer-tiles',
