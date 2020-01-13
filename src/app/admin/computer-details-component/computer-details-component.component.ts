@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Form, FormGroup } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, Form, FormGroup, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ComputerService } from 'src/app/services/computer.service';
 import { Computer } from 'src/app/classes/computer';
@@ -10,10 +10,11 @@ import { Computer } from 'src/app/classes/computer';
   styleUrls: ['./computer-details-component.component.css']
 })
 export class ComputerDetailsComponentComponent implements OnInit {
+ // @ViewChild("computerForm", {static: false}) form: NgForm;
 
   private computerForm: FormGroup;
-  private computer: Computer = new Computer("Name", "System", "Processor", "Graphics", "Memory", "Storage drivers", "Inputs", "Warranty", "Price", 0, "image");
-
+  //private computer: Computer = new Computer("Name", "System", "Processor", "Graphics", "Memory", "Storage drivers", "Inputs", "Warranty", "Price", 0, "image");
+  private computer: Computer;
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
@@ -25,7 +26,7 @@ export class ComputerDetailsComponentComponent implements OnInit {
   ngOnInit()
   {
     this.buildForm();
-    this.getForm();
+    //this.getForm();
   }
 
   buildForm()
@@ -40,7 +41,7 @@ export class ComputerDetailsComponentComponent implements OnInit {
       inputs: [''],
       warranty: [''],
       price: [''],
-      amount: [0],
+      amount: [''],
       image: ['']
     })
   }
@@ -54,16 +55,21 @@ export class ComputerDetailsComponentComponent implements OnInit {
         }); 
       }
       else {
-        this.computer = new Computer("Name", "System", "Processor", "Graphics", "Memory", "Storage drivers", "Inputs", "Warranty", "Price", 0, "image");
+        //this.computer = new Computer(this.computerForm.value)
+        //const {name, system, processor, graphics, memory, storageDrivers, inputs, warranty, price, amount, image} = this.computerForm.value;
+        //this.computer = new Computer(name, system, processor, graphics, memory, storageDrivers, inputs, warranty, price, amount, image);
       }
     })
   }
 
   onSubmit()
   {
+    const {name, system, processor, graphics, memory, storageDrivers, inputs, warranty, price, amount, image} = this.computerForm.value;
+    this.computer = new Computer(name, system, processor, graphics, memory, storageDrivers, inputs, warranty, price, amount, image);
+    //this.computer = new Computer(this.computerForm.value)
     console.log('this.computer', this.computer);
     this.computerService.addComputer(this.computer).subscribe(value => {
-      this.router.navigate(['admin/computerList']);
+    this.router.navigate(['admin/computerList']);
     })
   }
 

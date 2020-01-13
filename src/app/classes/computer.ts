@@ -26,6 +26,7 @@ export class Computer
     amount: number;
     image?: string;
 
+    
     constructor(name?: string, system?: string, processor?: string, graphics?: string, memory?: string, storageDrivers?: string, inputs?: string, warranty?: string, price?: string, amount?: number, image?: string)
     {
         this.name = name;
@@ -40,4 +41,12 @@ export class Computer
         this.amount = amount;
         this.image = image;
     }
+    
+
+    /*
+    public constructor(init?: Partial<Computer>)
+    {
+        Object.assign(this, init);
+    }
+    */
 }
