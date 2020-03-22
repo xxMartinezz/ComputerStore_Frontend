@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ComputerService } from 'src/app/services/computer.service';
+import { Computer } from 'src/app/classes/computer';
 
 @Component({
   selector: 'app-computers',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComputersComponent implements OnInit {
 
-  constructor() { }
+  private computers: Computer[];
+
+  constructor(private computerService: ComputerService) { }
 
   ngOnInit() {
+    this.computerService.getComputers().subscribe (computerPage => {
+      console.log('computerPage', computerPage);
+      this.computers = computerPage.content;
+    });
   }
 
 }

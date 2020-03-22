@@ -4,37 +4,121 @@
     <a routerLink="/admin/computerList/new">Dodaj nowy komputer</a>
   </div>
 
-  <div *ngIf="computerList == undefined || computerList.length === 0" fxLayout="row" fxLayoutAlign="center center">Brak komputerów w bazie</div>
-    <table class="table table-hover" *ngIf="computerList != undefined && computerList.length > 0">
-        <thead>
-          <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Name</th>
-            <th scope="col">System</th>
-            <th scope="col">Processor</th>
-            <th scope="col">Graphics</th>
-            <th scope="col">Memory</th>
-            <th scope="col">Storage drivers</th>
-            <th scope="col">Inputs</th>
-            <th scope="col">Warranty</th>
-            <th scope="col">Amount</th>
-            <th scope="col">Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let computer of computerList">
-            <th scope="row">{{computer.id}}</th>
-            <td>{{computer.name}}</td>
-            <td>{{computer.system}}</td>
-            <td>{{computer.processor}}</td>
-            <td>{{computer.graphics}}</td>
-            <td>{{computer.memory}}</td>
-            <td>{{computer.storageDrivers}}</td>
-            <td>{{computer.inputs}}</td>
-            <td>{{computer.warranty}}</td>
-            <td>{{computer.amount}}</td>
-            <td>{{computer.price}}</td>
-          </tr>
-        </tbody>
-    </table>
+  <div *ngIf="computerList === undefined || computerList.length === 0" fxLayout="row" fxLayoutAlign="center center">Brak komputerów w bazie</div>
+    
+  <div fxLayout="row" fxLayoutAlign="center center">
+
+    <!-- <table class="table table-hover" *ngIf="computerList !== undefined && computerList.length > 0">
+          <thead>
+            <tr >
+              <th scope="col">Id</th>
+              <th scope="col">Name</th>
+              <th scope="col">System</th>
+              <th scope="col">Processor</th>
+              <th scope="col">Graphics</th>
+              <th scope="col">Memory</th>
+              <th scope="col">Storage drivers</th>
+              <th scope="col">Inputs</th>
+              <th scope="col">Warranty</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Price</th>
+            </tr >
+          </thead>
+          <tbody>
+            <tr *ngFor="let computer of computerList">
+              <th scope="row">{{computer.id}}</th>
+              <td>{{computer.name}}</td>
+              <td>{{computer.system}}</td>
+              <td>{{computer.processor}}</td>
+              <td>{{computer.graphics}}</td>
+              <td>{{computer.memory}}</td>
+              <td>{{computer.storageDrivers}}</td>
+              <td>{{computer.inputs}}</td>
+              <td>{{computer.warranty}}</td>
+              <td>{{computer.amount}}</td>
+              <td>{{computer.price}}</td>
+            </tr>
+          </tbody>
+      </table> -->
+
+      <table mat-table [dataSource]="computerList" class="mat-elevation-z8" *ngIf="computerList !== undefined && computerList.length > 0">
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> Id </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="system">
+          <th mat-header-cell *matHeaderCellDef> System </th>
+          <td mat-cell *matCellDef="let element"> {{element.system}} </td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="processor">
+          <th mat-header-cell *matHeaderCellDef> Processor </th>
+          <td mat-cell *matCellDef="let element"> {{element.processor}} </td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="graphics">
+          <th mat-header-cell *matHeaderCellDef> Graphics </th>
+          <td mat-cell *matCellDef="let element"> {{element.graphics}} </td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="memory">
+          <th mat-header-cell *matHeaderCellDef> Memory </th>
+          <td mat-cell *matCellDef="let element"> {{element.memory}} </td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="storageDrivers">
+          <th mat-header-cell *matHeaderCellDef> Stroage drivers </th>
+          <td mat-cell *matCellDef="let element"> {{element.storageDrivers}} </td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="inputs">
+          <th mat-header-cell *matHeaderCellDef> Inputs </th>
+          <td mat-cell *matCellDef="let element"> {{element.inputs}} </td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="warranty">
+          <th mat-header-cell *matHeaderCellDef> Warranty </th>
+          <td mat-cell *matCellDef="let element"> {{element.warranty}} </td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="amount">
+          <th mat-header-cell *matHeaderCellDef> Amount </th>
+          <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef> Price </th>
+          <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="image">
+          <th mat-header-cell *matHeaderCellDef> Image </th>
+          <td mat-cell *matCellDef="let element"> {{element.image}} </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+  </div>
+
 </div>

@@ -26,27 +26,33 @@ export class Computer
     amount: number;
     image?: string;
 
-    
-    constructor(name?: string, system?: string, processor?: string, graphics?: string, memory?: string, storageDrivers?: string, inputs?: string, warranty?: string, price?: string, amount?: number, image?: string)
+    constructor(computer: Computer)
     {
-        this.name = name;
-        this.system = system;
-        this.processor = processor;
-        this.graphics = graphics;
-        this.memory = memory;
-        this.storageDrivers = storageDrivers;
-        this.inputs = inputs;
-        this.warranty = warranty;
-        this.price = price;
-        this.amount = amount;
-        this.image = image;
+        this.name = computer.name;
+        this.system = computer.system;
+        this.processor = computer.processor;
+        this.graphics = computer.graphics;
+        this.memory = computer.memory;
+        this.storageDrivers = computer.storageDrivers;
+        this.inputs = computer.inputs;
+        this.warranty = computer.warranty;
+        this.price = computer.price;
+        this.amount = computer.amount;
+        this.image = computer.image;
     }
     
-
-    /*
-    public constructor(init?: Partial<Computer>)
-    {
-        Object.assign(this, init);
-    }
-    */
+    // constructor(name?: string, system?: string, processor?: string, graphics?: string, memory?: string, storageDrivers?: string, inputs?: string, warranty?: string, price?: string, amount?: number, image?: string)
+    // {
+    //     this.name = name;
+    //     this.system = system;
+    //     this.processor = processor;
+    //     this.graphics = graphics;
+    //     this.memory = memory;
+    //     this.storageDrivers = storageDrivers;
+    //     this.inputs = inputs;
+    //     this.warranty = warranty;
+    //     this.price = price;
+    //     this.amount = amount;
+    //     this.image = image;
+    // }
 }

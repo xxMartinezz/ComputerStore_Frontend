@@ -24,7 +24,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { ComputerListComponent } from './admin/computer-list/computer-list.component';
 import { ComputerDetailsComponentComponent } from './admin/computer-details-component/computer-details-component.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatInputModule } from '@angular/material'; /* relevant import */
+import { MatInputModule, MatIcon, MatIconModule } from '@angular/material'; /* relevant import */
 
 @NgModule({
    declarations: [
@@ -54,7 +54,8 @@ import { MatInputModule } from '@angular/material'; /* relevant import */
       MatTableModule,
       MatButtonToggleModule,
       ReactiveFormsModule,
-      MatInputModule
+      MatInputModule,
+      MatIconModule
    ],
    providers: [],
    bootstrap: [

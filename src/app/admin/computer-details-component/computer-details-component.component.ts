@@ -42,7 +42,8 @@ export class ComputerDetailsComponentComponent implements OnInit {
       warranty: [''],
       price: [''],
       amount: [''],
-      image: ['']
+      image: [''],
+      id: ['']
     })
   }
 
@@ -64,12 +65,18 @@ export class ComputerDetailsComponentComponent implements OnInit {
 
   onSubmit()
   {
-    const {name, system, processor, graphics, memory, storageDrivers, inputs, warranty, price, amount, image} = this.computerForm.value;
-    this.computer = new Computer(name, system, processor, graphics, memory, storageDrivers, inputs, warranty, price, amount, image);
-    //this.computer = new Computer(this.computerForm.value)
-    console.log('this.computer', this.computer);
-    this.computerService.addComputer(this.computer).subscribe(value => {
-    this.router.navigate(['admin/computerList']);
+    // const {name, system, processor, graphics, memory, storageDrivers, inputs, warranty, price, amount, image} = this.computerForm.value;
+    // this.computer = new Computer(name, system, processor, graphics, memory, storageDrivers, inputs, warranty, price, amount, image);
+    // //this.computer = new Computer(this.computerForm.value)
+    // console.log('this.computer', this.computer);
+    // this.computerService.addComputer(this.computer).subscribe(value => {
+    // this.router.navigate(['admin/computerList']);
+    // })
+
+    const form = { ...this.computerForm.value }
+    const comp = new Computer(form)
+    return this.computerService.addComputer(comp).subscribe(() => {
+      this.router.navigate(['admin/computerList']);
     })
   }
 
